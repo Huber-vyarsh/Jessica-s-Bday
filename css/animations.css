@@ -1,0 +1,269 @@
+/* =============================================
+   FOUNDATION ANIMATIONS
+   ============================================= */
+
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes titleReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(60px)
+            skewY(4deg);
+
+        filter:
+            blur(10px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            skewY(0);
+
+        filter:
+            blur(0);
+
+    }
+
+}
+
+
+@keyframes pulse {
+
+    0%,
+    100% {
+
+        opacity: 0.5;
+
+        transform:
+            scale(0.8);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.15);
+
+    }
+
+}
+
+
+@keyframes ambientFloatOne {
+
+    0%,
+    100% {
+
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translate3d(8vw, 5vh, 0)
+            scale(1.15);
+
+    }
+
+}
+
+
+@keyframes ambientFloatTwo {
+
+    0%,
+    100% {
+
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translate3d(-7vw, 8vh, 0)
+            scale(1.1);
+
+    }
+
+}
+
+
+@keyframes ambientFloatThree {
+
+    0%,
+    100% {
+
+        transform:
+            translate3d(0, 0, 0);
+
+    }
+
+    50% {
+
+        transform:
+            translate3d(5vw, -5vh, 0);
+
+    }
+
+}
+
+
+@keyframes noiseMove {
+
+    0% {
+
+        transform:
+            translate3d(0, 0, 0);
+
+    }
+
+    25% {
+
+        transform:
+            translate3d(-2%, 3%, 0);
+
+    }
+
+    50% {
+
+        transform:
+            translate3d(3%, -2%, 0);
+
+    }
+
+    75% {
+
+        transform:
+            translate3d(-3%, -3%, 0);
+
+    }
+
+    100% {
+
+        transform:
+            translate3d(0, 0, 0);
+
+    }
+
+}
+
+
+/* =============================================
+   SCENE TRANSITIONS
+   ============================================= */
+
+.scene.is-exiting {
+
+    animation:
+        sceneExit
+        0.9s
+        var(--ease-sharp)
+        forwards;
+
+}
+
+
+.scene.is-entering {
+
+    animation:
+        sceneEnter
+        1.2s
+        var(--ease-luxury)
+        forwards;
+
+}
+
+
+@keyframes sceneExit {
+
+    from {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+        filter:
+            blur(0);
+
+    }
+
+    to {
+
+        opacity: 0;
+
+        transform:
+            scale(1.04);
+
+        filter:
+            blur(10px);
+
+    }
+
+}
+
+
+@keyframes sceneEnter {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.97);
+
+        filter:
+            blur(12px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+        filter:
+            blur(0);
+
+    }
+
+}
