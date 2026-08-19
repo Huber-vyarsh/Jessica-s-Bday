@@ -27,31 +27,39 @@ const PROJECT_CONFIG = {
        BIRTHDAY
        ================================================ */
 
-    birthday: {
+   birthday: {
 
-        /*
-         * IMPORTANT:
-         *
-         * This is currently a PLACEHOLDER.
-         *
-         * Put the actual upcoming birthday date/time here.
-         *
-         * Format:
-         *
-         * YYYY-MM-DDTHH:MM:SS+05:30
-         *
-         * Example:
-         *
-         * 2026-09-07T12:00:00+05:30
-         */
+    /*
+     * ============================================
+     * MASTER BIRTHDAY TIME
+     * ============================================
+     *
+     * 07 September 2026
+     * 12:00 PM
+     * India Standard Time
+     *
+     * +05:30 = IST
+     */
 
-        target:
-            "2026-09-07T12:00:00+05:30",
+    target:
+        "2026-09-07T12:00:00+05:30",
 
-        timezone:
-            "Asia/Kolkata"
 
-    },
+    /*
+     * Display information.
+     * These are NOT used for calculations.
+     */
+
+    name:
+        "Jessica",
+
+    displayDate:
+        "07 · 09 · 2026",
+
+    timezone:
+        "Asia/Kolkata"
+
+}
 
 
     /* ================================================
