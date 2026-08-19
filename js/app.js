@@ -98,7 +98,28 @@ this.birthdayUnlocked =
         this.setupParticles();
 
         this.setupClock();
+       this.setupCountdown() {
+          if (
+             !this.countdown ||
+             !this.countdown.container
+             ) {
+             console.warn(
+                "countdown elements dont found."
+                );
+             return;
+          }
+          this.updateCountdown();
 
+          this.countdownInterval = 
+             window.setInterval(
+                () => {
+                   this.updateCountdown();
+                },
+                1000
+                );
+       }
+updateCountdown()
+       handleBirthdayUnlock()
         this.setupInteractions();
 
         await this.runLoader();
