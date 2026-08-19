@@ -118,8 +118,591 @@ this.birthdayUnlocked =
                 1000
                 );
        }
+       this.setupTierTwo();
 updateCountdown()
        handleBirthdayUnlock()
+       /* =================================================
+   TIER 2 — INITIALIZATION
+   ================================================= */
+
+setupTierTwo() {
+
+    /*
+     * Listen for the countdown finishing.
+     */
+
+    window.addEventListener(
+        "birthdayUnlocked",
+        () => {
+
+            this.unlockBirthdayExperience();
+
+        }
+    );
+
+
+    /*
+     * Manual PIN access.
+     */
+
+    if (
+        this.pinAccessButton
+    ) {
+
+        this.pinAccessButton
+            .addEventListener(
+                "click",
+                () => {
+
+                    this.openPinModal();
+
+                }
+            );
+
+    }
+
+
+    /*
+     * Close PIN modal.
+     */
+
+    if (
+        this.pinCloseButton
+    ) {
+
+        this.pinCloseButton
+            .addEventListener(
+                "click",
+                () => {
+
+                    this.closePinModal();
+
+                }
+            );
+
+    }
+
+
+    /*
+     * Backdrop closes modal.
+     */
+
+    document
+        .querySelector(
+            "[data-pin-close]"
+        )
+        ?.addEventListener(
+            "click",
+            () => {
+
+                this.closePinModal();
+
+            }
+        );
+
+
+    /*
+     * PIN keypad.
+     */
+
+    if (
+        this.pinKeypad
+    ) {
+
+        this.pinKeypad
+            .addEventListener(
+                "click",
+                (event) => {
+
+                    const button =
+                        event.target
+                            .closest(
+                                "[data-pin-key]"
+                            );
+
+
+                    if (
+                        !button
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    const key =
+                        button.dataset
+                            .pinKey;
+
+
+                    this.handlePinInput(
+                        key
+                    );
+
+                }
+            );
+
+    }
+
+
+    /*
+     * Continue button.
+     *
+     * This will become the bridge
+     * to Tier 3.
+     */
+
+    if (
+        this.revealContinueButton
+    ) {
+
+        this.revealContinueButton
+            .addEventListener(
+                "click",
+                () => {
+
+                    window.dispatchEvent(
+                        new CustomEvent(
+                            "birthdayRevealContinue"
+                        )
+                    );
+
+                }
+            );
+
+    }
+
+}
+
+
+/* =================================================
+   OPEN PIN MODAL
+   ================================================= */
+
+openPinModal() {
+
+    if (
+        !this.pinModal
+    ) {
+
+        return;
+
+    }
+
+
+    this.enteredPin =
+        "";
+
+
+    this.updatePinDots();
+
+
+    if (
+        this.pinMessage
+    ) {
+
+        this.pinMessage.textContent =
+            "Enter the secret four-digit code.";
+
+    }
+
+
+    this.pinModal
+        .classList.add(
+            "active"
+        );
+
+
+    this.pinModal
+        .setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+}
+
+
+/* =================================================
+   CLOSE PIN MODAL
+   ================================================= */
+
+closePinModal() {
+
+    if (
+        !this.pinModal
+    ) {
+
+        return;
+
+    }
+
+
+    this.pinModal
+        .classList.remove(
+            "active"
+        );
+
+
+    this.pinModal
+        .setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+}
+
+
+/* =================================================
+   HANDLE PIN
+   ================================================= */
+
+handlePinInput(
+    key
+) {
+
+    if (
+        key === "clear"
+    ) {
+
+        this.enteredPin =
+            "";
+
+        this.updatePinDots();
+
+        return;
+
+    }
+
+
+    if (
+        key === "back"
+    ) {
+
+        this.enteredPin =
+            this.enteredPin.slice(
+                0,
+                -1
+            );
+
+        this.updatePinDots();
+
+        return;
+
+    }
+
+
+    if (
+        !/^\d$/.test(key)
+    ) {
+
+        return;
+
+    }
+
+
+    if (
+        this.enteredPin.length >=
+        this.maxPinLength
+    ) {
+
+        return;
+
+    }
+
+
+    this.enteredPin +=
+        key;
+
+
+    this.updatePinDots();
+
+
+    /*
+     * Four digits entered.
+     */
+
+    if (
+        this.enteredPin.length ===
+        this.maxPinLength
+    ) {
+
+        window.setTimeout(
+            () => {
+
+                this.verifyPin();
+
+            },
+            180
+        );
+
+    }
+
+}
+
+
+/* =================================================
+   UPDATE PIN DOTS
+   ================================================= */
+
+updatePinDots() {
+
+    if (
+        !this.pinDots
+    ) {
+
+        return;
+
+    }
+
+
+    const dots =
+        this.pinDots
+            .querySelectorAll(
+                "span"
+            );
+
+
+    dots.forEach(
+        (
+            dot,
+            index
+        ) => {
+
+            dot.classList.toggle(
+                "filled",
+                index <
+                this.enteredPin.length
+            );
+
+        }
+    );
+
+}
+
+
+/* =================================================
+   VERIFY PIN
+   ================================================= */
+
+verifyPin() {
+
+    if (
+        this.enteredPin ===
+        this.secretPin
+    ) {
+
+        if (
+            this.pinMessage
+        ) {
+
+            this.pinMessage.textContent =
+                "Access granted.";
+
+        }
+
+
+        window.setTimeout(
+            () => {
+
+                this.closePinModal();
+
+                this.unlockBirthdayExperience();
+
+            },
+            500
+        );
+
+
+        return;
+
+    }
+
+
+    /*
+     * Wrong PIN.
+     */
+
+    if (
+        this.pinMessage
+    ) {
+
+        this.pinMessage.textContent =
+            "Hmm... that isn't the secret.";
+
+    }
+
+
+    if (
+        this.pinDots
+    ) {
+
+        this.pinDots.classList.add(
+            "pin-error"
+        );
+
+
+        window.setTimeout(
+            () => {
+
+                this.pinDots
+                    .classList.remove(
+                        "pin-error"
+                    );
+
+            },
+            500
+        );
+
+    }
+
+
+    window.setTimeout(
+        () => {
+
+            this.enteredPin =
+                "";
+
+            this.updatePinDots();
+
+        },
+        650
+    );
+
+}
+
+
+/* =================================================
+   UNLOCK BIRTHDAY EXPERIENCE
+   ================================================= */
+
+unlockBirthdayExperience() {
+
+    /*
+     * Prevent duplicate unlocks.
+     */
+
+    if (
+        this.birthdayExperienceUnlocked
+    ) {
+
+        return;
+
+    }
+
+
+    this.birthdayExperienceUnlocked =
+        true;
+
+
+    /*
+     * Hide countdown if it still exists.
+     */
+
+    if (
+        this.countdown &&
+        this.countdown.container
+    ) {
+
+        this.countdown.container
+            .classList.remove(
+                "is-unlocked"
+            );
+
+    }
+
+
+    /*
+     * Activate lock screen first.
+     */
+
+    if (
+        this.lockScreen
+    ) {
+
+        this.lockScreen
+            .classList.add(
+                "active"
+            );
+
+        this.lockScreen
+            .setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+    }
+
+
+    /*
+     * After the lock chamber appears,
+     * reveal the birthday.
+     */
+
+    window.setTimeout(
+        () => {
+
+            this.showBirthdayReveal();
+
+        },
+        2200
+    );
+
+}
+
+
+/* =================================================
+   SHOW BIRTHDAY REVEAL
+   ================================================= */
+
+showBirthdayReveal() {
+
+    if (
+        this.lockScreen
+    ) {
+
+        this.lockScreen
+            .classList.remove(
+                "active"
+            );
+
+        this.lockScreen
+            .setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+    }
+
+
+    if (
+        this.birthdayReveal
+    ) {
+
+        this.birthdayReveal
+            .classList.add(
+                "active"
+            );
+
+        this.birthdayReveal
+            .setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+    }
+
+
+    /*
+     * Notify Tier 3.
+     */
+
+    window.dispatchEvent(
+        new CustomEvent(
+            "birthdayRevealShown"
+        )
+    );
+
+}
         this.setupInteractions();
 
         await this.runLoader();
@@ -520,3 +1103,71 @@ document.addEventListener(
 
     }
 );
+/* ============================================
+   TIER 2 — LOCK / REVEAL REFERENCES
+   ============================================ */
+
+this.lockScreen =
+    document.getElementById(
+        "birthdayLockScreen"
+    );
+
+this.pinModal =
+    document.getElementById(
+        "pinModal"
+    );
+
+this.pinAccessButton =
+    document.getElementById(
+        "pinAccessButton"
+    );
+
+this.pinCloseButton =
+    document.getElementById(
+        "pinCloseButton"
+    );
+
+this.pinKeypad =
+    document.getElementById(
+        "pinKeypad"
+    );
+
+this.pinDots =
+    document.getElementById(
+        "pinDots"
+    );
+
+this.pinMessage =
+    document.getElementById(
+        "pinMessage"
+    );
+
+this.birthdayReveal =
+    document.getElementById(
+        "birthdayReveal"
+    );
+
+this.revealContinueButton =
+    document.getElementById(
+        "revealContinueButton"
+    );
+
+
+/* ============================================
+   PIN STATE
+   ============================================ */
+
+this.enteredPin =
+    "";
+
+this.maxPinLength =
+    4;
+
+
+/*
+ * CHANGE THIS ONE VALUE
+ * when you decide your private PIN.
+ */
+
+this.secretPin =
+    "0709";
