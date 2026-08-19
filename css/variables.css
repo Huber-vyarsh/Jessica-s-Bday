@@ -1,0 +1,77 @@
+:root {
+
+    /* =========================================
+       PROJECT COLORS
+       ========================================= */
+
+    --color-black: #050507;
+    --color-black-soft: #09090d;
+
+    --color-midnight: #0c0d17;
+    --color-midnight-light: #131525;
+
+    --color-crimson: #8d1028;
+    --color-crimson-bright: #c52a49;
+
+    --color-gold: #e7c878;
+    --color-gold-soft: #f0d993;
+
+    --color-white: #f8f6f0;
+    --color-white-soft: rgba(248, 246, 240, 0.72);
+    --color-white-muted: rgba(248, 246, 240, 0.45);
+
+    /* =========================================
+       TYPOGRAPHY
+       ========================================= */
+
+    --font-display: "Cormorant Garamond", serif;
+    --font-serif: "Playfair Display", serif;
+    --font-body: "DM Sans", sans-serif;
+
+    /* =========================================
+       SPACING
+       ========================================= */
+
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 8rem;
+
+    /* =========================================
+       RADIUS
+       ========================================= */
+
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 24px;
+
+    /* =========================================
+       MOTION
+       ========================================= */
+
+    --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-sharp: cubic-bezier(0.7, 0, 0.3, 1);
+
+    /* =========================================
+       Z INDEX
+       ========================================= */
+
+    --z-background: 0;
+    --z-content: 10;
+    --z-ui: 100;
+    --z-cursor: 500;
+    --z-loader: 1000;
+
+    /* =========================================
+       EFFECTS
+       ========================================= */
+
+    --shadow-gold:
+        0 0 30px rgba(231, 200, 120, 0.12);
+
+    --shadow-crimson:
+        0 0 50px rgba(197, 42, 73, 0.14);
+
+}
