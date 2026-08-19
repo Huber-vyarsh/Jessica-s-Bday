@@ -1,0 +1,195 @@
+/* =============================================
+   TABLET
+   ============================================= */
+
+@media (max-width: 900px) {
+
+    .hero-title {
+
+        font-size:
+            clamp(
+                4rem,
+                13vw,
+                7rem
+            );
+
+    }
+
+
+    .background-word {
+
+        font-size:
+            25vw;
+
+    }
+
+
+    .global-ui {
+
+        padding:
+            1.5rem;
+
+    }
+
+}
+
+
+/* =============================================
+   MOBILE
+   ============================================= */
+
+@media (max-width: 600px) {
+
+    html {
+
+        font-size: 15px;
+
+    }
+
+
+    .scene {
+
+        padding:
+            6rem 1.25rem;
+
+    }
+
+
+    .hero-title {
+
+        font-size:
+            clamp(
+                3.5rem,
+                18vw,
+                6rem
+            );
+
+        line-height:
+            0.88;
+
+    }
+
+
+    .hero-description {
+
+        max-width:
+            280px;
+
+        margin-left:
+            auto;
+
+        margin-right:
+            auto;
+
+        font-size:
+            0.72rem;
+
+        line-height:
+            1.6;
+
+    }
+
+
+    .luxury-button {
+
+        min-width:
+            155px;
+
+    }
+
+
+    .background-word {
+
+        font-size:
+            28vw;
+
+        opacity:
+            0.8;
+
+    }
+
+
+    .scroll-indicator {
+
+        display:
+            none;
+
+    }
+
+
+    .scene-index {
+
+        left:
+            1.5rem;
+
+        bottom:
+            1.5rem;
+
+    }
+
+
+    .location-mark {
+
+        font-size:
+            0.7rem;
+
+    }
+
+
+    .brand-mark {
+
+        font-size:
+            0.52rem;
+
+    }
+
+
+    .current-time {
+
+        font-size:
+            0.55rem;
+
+    }
+
+
+    .ambient-glow {
+
+        min-width:
+            250px;
+
+        min-height:
+            250px;
+
+        filter:
+            blur(70px);
+
+    }
+
+}
+
+
+/* =============================================
+   VERY SMALL DEVICES
+   ============================================= */
+
+@media (max-width: 380px) {
+
+    .hero-title {
+
+        font-size:
+            3.1rem;
+
+    }
+
+
+    .eyebrow {
+
+        font-size:
+            0.55rem;
+
+        letter-spacing:
+            0.3em;
+
+    }
+
+}
