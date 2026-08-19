@@ -438,4 +438,310 @@
     <script src="js/app.js"></script>
 
 </body>
+    <!-- ==================================================
+     TIER 2 — CINEMATIC LOCK SCREEN
+     ================================================== -->
+
+<section
+    id="birthdayLockScreen"
+    class="birthday-lock-screen"
+    aria-hidden="true"
+>
+
+    <!-- Ambient background -->
+
+    <div class="lock-ambient lock-ambient-one"></div>
+    <div class="lock-ambient lock-ambient-two"></div>
+
+
+    <!-- Tiny particles -->
+
+    <div
+        class="lock-particles"
+        aria-hidden="true"
+    >
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+
+    <!-- Main content -->
+
+    <div class="lock-content">
+
+        <div class="lock-symbol">
+
+            <span class="lock-symbol-ring"></span>
+
+            <span class="lock-symbol-core">
+                ✦
+            </span>
+
+        </div>
+
+
+        <p class="lock-eyebrow">
+            PRIVATE ACCESS
+        </p>
+
+
+        <h2 class="lock-title">
+            Something
+            <span>beautiful</span>
+            is waiting.
+        </h2>
+
+
+        <p
+            id="lockSubtitle"
+            class="lock-subtitle"
+        >
+            This little world is locked
+            until the right moment.
+        </p>
+
+
+        <!-- Countdown bypass -->
+
+        <button
+            id="pinAccessButton"
+            class="lock-access-button"
+            type="button"
+        >
+
+            <span class="lock-button-icon">
+                ◇
+            </span>
+
+            <span>
+                I KNOW THE SECRET
+            </span>
+
+        </button>
+
+
+        <p class="lock-footer">
+            crafted with entirely too much love
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     PIN MODAL
+     ================================================== -->
+
+<section
+    id="pinModal"
+    class="pin-modal"
+    aria-hidden="true"
+>
+
+    <div
+        class="pin-modal-backdrop"
+        data-pin-close
+    ></div>
+
+
+    <div class="pin-panel">
+
+        <button
+            id="pinCloseButton"
+            class="pin-close"
+            type="button"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+
+        <div class="pin-mini-symbol">
+            ✦
+        </div>
+
+
+        <p class="pin-eyebrow">
+            PRIVATE ACCESS
+        </p>
+
+
+        <h3 class="pin-title">
+            You know the way.
+        </h3>
+
+
+        <p
+            id="pinMessage"
+            class="pin-message"
+        >
+            Enter the secret four-digit code.
+        </p>
+
+
+        <div
+            class="pin-dots"
+            id="pinDots"
+            aria-hidden="true"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+        <div
+            class="pin-keypad"
+            id="pinKeypad"
+        >
+
+            <button type="button" data-pin-key="1">
+                1
+            </button>
+
+            <button type="button" data-pin-key="2">
+                2
+            </button>
+
+            <button type="button" data-pin-key="3">
+                3
+            </button>
+
+            <button type="button" data-pin-key="4">
+                4
+            </button>
+
+            <button type="button" data-pin-key="5">
+                5
+            </button>
+
+            <button type="button" data-pin-key="6">
+                6
+            </button>
+
+            <button type="button" data-pin-key="7">
+                7
+            </button>
+
+            <button type="button" data-pin-key="8">
+                8
+            </button>
+
+            <button type="button" data-pin-key="9">
+                9
+            </button>
+
+            <button
+                type="button"
+                data-pin-key="clear"
+                class="pin-key-secondary"
+            >
+                C
+            </button>
+
+            <button type="button" data-pin-key="0">
+                0
+            </button>
+
+            <button
+                type="button"
+                data-pin-key="back"
+                class="pin-key-secondary"
+            >
+                ←
+            </button>
+
+        </div>
+
+
+        <p class="pin-hint">
+            There is only one person
+            who should know this.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     TIER 2 — BIRTHDAY REVEAL
+     ================================================== -->
+
+<section
+    id="birthdayReveal"
+    class="birthday-reveal"
+    aria-hidden="true"
+>
+
+    <div class="reveal-glow"></div>
+
+    <div class="reveal-particles"></div>
+
+
+    <div class="reveal-content">
+
+        <p class="reveal-small">
+            THE WAIT IS OVER
+        </p>
+
+
+        <h1 class="reveal-title">
+
+            Happy Birthday
+
+            <span>
+                Jessica
+            </span>
+
+        </h1>
+
+
+        <div class="reveal-divider">
+
+            <span></span>
+
+            ✦
+
+            <span></span>
+
+        </div>
+
+
+        <p class="reveal-message">
+            Today isn't just another day.
+        </p>
+
+
+        <button
+            id="revealContinueButton"
+            class="reveal-continue"
+            type="button"
+        >
+
+            <span>
+                LET'S BEGIN
+            </span>
+
+            <span class="reveal-arrow">
+                →
+            </span>
+
+        </button>
+
+    </div>
+
+</section>
 </html>
