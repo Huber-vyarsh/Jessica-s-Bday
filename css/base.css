@@ -1054,3 +1054,528 @@ body.cursor-hover .cursor-follower {
     }
 
 }
+/* =====================================================
+   CINEMATIC BIRTHDAY COUNTDOWN
+   ===================================================== */
+
+.birthday-countdown {
+
+    position: relative;
+
+    width: min(
+        920px,
+        calc(100% - 40px)
+    );
+
+    margin:
+        3.5rem auto 0;
+
+    text-align: center;
+
+    opacity: 0;
+
+    animation:
+        countdownEntrance
+        1.4s
+        var(--ease-luxury, cubic-bezier(.16,1,.3,1))
+        0.8s
+        forwards;
+
+}
+
+
+/* =====================================================
+   EYEBROW
+   ===================================================== */
+
+.countdown-eyebrow {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 0.8rem;
+
+    color:
+        var(--color-white-muted, rgba(255,255,255,.55));
+
+    font-size:
+        0.58rem;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.38em;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+.countdown-lock-icon {
+
+    color:
+        var(--color-gold, #e7c878);
+
+    font-size:
+        0.55rem;
+
+    opacity:
+        0.7;
+
+}
+
+
+/* =====================================================
+   DATE
+   ===================================================== */
+
+.countdown-date {
+
+    margin-top:
+        1rem;
+
+    color:
+        var(--color-white-muted, rgba(255,255,255,.55));
+
+    font-family:
+        var(--font-display, serif);
+
+    font-size:
+        0.82rem;
+
+    letter-spacing:
+        0.3em;
+
+    opacity:
+        0.75;
+
+}
+
+
+/* =====================================================
+   COUNTDOWN GRID
+   ===================================================== */
+
+.countdown-grid {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    gap:
+        clamp(
+            0.5rem,
+            2vw,
+            1.6rem
+        );
+
+    margin-top:
+        1.8rem;
+
+}
+
+
+/* =====================================================
+   INDIVIDUAL UNIT
+   ===================================================== */
+
+.countdown-unit {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width:
+        clamp(
+            65px,
+            10vw,
+            120px
+        );
+
+}
+
+
+/* =====================================================
+   NUMBER
+   ===================================================== */
+
+.countdown-number {
+
+    display: block;
+
+    min-width:
+        2ch;
+
+    color:
+        var(--color-white, #fff);
+
+    font-family:
+        var(--font-display, serif);
+
+    font-size:
+        clamp(
+            3.3rem,
+            7vw,
+            6.8rem
+        );
+
+    font-weight:
+        500;
+
+    line-height:
+        0.9;
+
+    letter-spacing:
+        -0.055em;
+
+    font-variant-numeric:
+        tabular-nums;
+
+    text-shadow:
+        0 0 35px
+        rgba(231,200,120,.10);
+
+    transition:
+        color .25s ease,
+        text-shadow .25s ease,
+        transform .25s ease;
+
+}
+
+
+.countdown-number.tick {
+
+    color:
+        var(--color-gold, #e7c878);
+
+    text-shadow:
+        0 0 12px
+        rgba(231,200,120,.35),
+        0 0 45px
+        rgba(231,200,120,.16);
+
+    transform:
+        translateY(-3px)
+        scale(1.015);
+
+}
+
+
+/* =====================================================
+   LABEL
+   ===================================================== */
+
+.countdown-label {
+
+    margin-top:
+        0.9rem;
+
+    color:
+        var(--color-white-muted, rgba(255,255,255,.5));
+
+    font-size:
+        0.48rem;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.24em;
+
+}
+
+
+/* =====================================================
+   SEPARATOR
+   ===================================================== */
+
+.countdown-separator {
+
+    margin-top:
+        0.2rem;
+
+    color:
+        var(--color-crimson-bright, #c52a49);
+
+    font-family:
+        var(--font-display, serif);
+
+    font-size:
+        clamp(
+            2.2rem,
+            5vw,
+            4rem
+        );
+
+    line-height:
+        1;
+
+    opacity:
+        .65;
+
+    animation:
+        countdownSeparator
+        2s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =====================================================
+   MESSAGE
+   ===================================================== */
+
+.countdown-message {
+
+    margin:
+        2rem 0 0;
+
+    color:
+        var(--color-white-muted, rgba(255,255,255,.6));
+
+    font-family:
+        var(--font-display, serif);
+
+    font-size:
+        clamp(
+            1rem,
+            2vw,
+            1.3rem
+        );
+
+    font-style:
+        italic;
+
+    letter-spacing:
+        .025em;
+
+}
+
+
+/* =====================================================
+   STATUS
+   ===================================================== */
+
+.countdown-status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap:
+        .55rem;
+
+    margin-top:
+        1.5rem;
+
+    padding:
+        .55rem 1rem;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    color:
+        rgba(255,255,255,.45);
+
+    font-size:
+        .43rem;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        .22em;
+
+}
+
+
+.status-dot {
+
+    width:
+        5px;
+
+    height:
+        5px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--color-crimson-bright, #c52a49);
+
+    box-shadow:
+        0 0 10px
+        rgba(197,42,73,.65);
+
+    animation:
+        statusPulse
+        2s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =====================================================
+   UNLOCK STATE
+   ===================================================== */
+
+.birthday-countdown.is-unlocked {
+
+    animation:
+        countdownUnlock
+        1.2s
+        var(--ease-luxury, cubic-bezier(.16,1,.3,1))
+        forwards;
+
+}
+
+
+/* =====================================================
+   ANIMATIONS
+   ===================================================== */
+
+@keyframes countdownEntrance {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(25px);
+
+        filter:
+            blur(8px);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+
+        filter:
+            blur(0);
+
+    }
+
+}
+
+
+@keyframes countdownSeparator {
+
+    0%,
+    100% {
+
+        opacity:
+            .3;
+
+    }
+
+    50% {
+
+        opacity:
+            .9;
+
+        text-shadow:
+            0 0 15px
+            rgba(197,42,73,.5);
+
+    }
+
+}
+
+
+@keyframes statusPulse {
+
+    0%,
+    100% {
+
+        opacity:
+            .35;
+
+        transform:
+            scale(.85);
+
+    }
+
+    50% {
+
+        opacity:
+            1;
+
+        transform:
+            scale(1.15);
+
+    }
+
+}
+
+
+@keyframes countdownUnlock {
+
+    0% {
+
+        opacity:
+            1;
+
+        transform:
+            scale(1);
+
+        filter:
+            blur(0);
+
+    }
+
+    45% {
+
+        opacity:
+            .75;
+
+        transform:
+            scale(1.025);
+
+        filter:
+            blur(1px);
+
+    }
+
+    100% {
+
+        opacity:
+            0;
+
+        transform:
+            scale(1.08);
+
+        filter:
+            blur(12px);
+
+    }
+
+}
