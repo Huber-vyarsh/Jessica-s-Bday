@@ -25,6 +25,59 @@ class BirthdayExperience {
 
         this.foundationButton =
             document.getElementById("foundationButton");
+       /* ============================================
+   COUNTDOWN REFERENCES
+   ============================================ */
+
+this.countdown = {
+
+    container:
+        document.getElementById(
+            "birthdayCountdown"
+        ),
+
+    days:
+        document.getElementById(
+            "countdownDays"
+        ),
+
+    hours:
+        document.getElementById(
+            "countdownHours"
+        ),
+
+    minutes:
+        document.getElementById(
+            "countdownMinutes"
+        ),
+
+    seconds:
+        document.getElementById(
+            "countdownSeconds"
+        ),
+
+    message:
+        document.getElementById(
+            "countdownMessage"
+        ),
+
+    status:
+        document.getElementById(
+            "countdownStatusText"
+        )
+
+};
+
+
+/* ============================================
+   COUNTDOWN STATE
+   ============================================ */
+
+this.countdownInterval =
+    null;
+
+this.birthdayUnlocked =
+    false;
 
         this.particleSystem =
             null;
