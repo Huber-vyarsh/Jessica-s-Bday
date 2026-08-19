@@ -193,3 +193,175 @@
     }
 
 }
+/* =====================================================
+   COUNTDOWN — RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    .birthday-countdown {
+
+        width:
+            calc(100% - 28px);
+
+        margin-top:
+            2.8rem;
+
+    }
+
+
+    .countdown-eyebrow {
+
+        font-size:
+            .48rem;
+
+        letter-spacing:
+            .27em;
+
+    }
+
+
+    .countdown-date {
+
+        font-size:
+            .7rem;
+
+        letter-spacing:
+            .23em;
+
+    }
+
+
+    .countdown-grid {
+
+        gap:
+            .3rem;
+
+        margin-top:
+            1.5rem;
+
+    }
+
+
+    .countdown-unit {
+
+        min-width:
+            52px;
+
+    }
+
+
+    .countdown-number {
+
+        font-size:
+            clamp(
+                2.3rem,
+                11vw,
+                4rem
+            );
+
+    }
+
+
+    .countdown-label {
+
+        margin-top:
+            .7rem;
+
+        font-size:
+            .38rem;
+
+        letter-spacing:
+            .16em;
+
+    }
+
+
+    .countdown-separator {
+
+        font-size:
+            2rem;
+
+    }
+
+
+    .countdown-message {
+
+        margin-top:
+            1.6rem;
+
+        font-size:
+            1rem;
+
+    }
+
+}
+
+
+@media (max-width: 430px) {
+
+    .countdown-eyebrow {
+
+        font-size:
+            .4rem;
+
+        letter-spacing:
+            .2em;
+
+    }
+
+
+    .countdown-grid {
+
+        gap:
+            .08rem;
+
+    }
+
+
+    .countdown-unit {
+
+        min-width:
+            45px;
+
+    }
+
+
+    .countdown-number {
+
+        font-size:
+            2.15rem;
+
+    }
+
+
+    .countdown-label {
+
+        font-size:
+            .31rem;
+
+        letter-spacing:
+            .11em;
+
+    }
+
+
+    .countdown-separator {
+
+        font-size:
+            1.35rem;
+
+    }
+
+
+    .countdown-status {
+
+        font-size:
+            .36rem;
+
+        padding:
+            .5rem .8rem;
+
+    }
+
+}
